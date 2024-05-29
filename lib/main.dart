@@ -29,10 +29,10 @@ void main() async {
   }
 
   HttpOverrides.global = MyHttpOverrides();
-  await SystemChrome.setPreferredOrientations([
+/*   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
-  ]);
+  ]); */
 
   // Uncomment the line below to enable device preview
   //runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => const AIMobileInspection()));

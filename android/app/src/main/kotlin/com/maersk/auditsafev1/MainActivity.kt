@@ -1,4 +1,4 @@
-package com.maersk.auditsafev1
+package com.adarsh.camera_app
 
 import io.flutter.embedding.android.FlutterActivity
 
