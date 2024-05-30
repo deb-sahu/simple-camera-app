@@ -9,7 +9,6 @@ import 'package:simple_camera_app/service/singletons/camera_description_helper.d
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:top_snackbar/styles.dart';
 import 'package:top_snackbar/top_snackbar.dart';
 
 final updateClickProvider = StateProvider<bool>((ref) {
@@ -372,7 +371,7 @@ class _CameraWidgetState extends ConsumerState<CameraWidget> with WidgetsBinding
             if (isImageCaptured)
               // Thumbnail for the captured image
               Positioned(
-                top: height * 0.02, // Adjust the position as needed
+                top: height * 0.06, // Adjust the position as needed
                 left: width * 0.06,
                 child: Image.file(
                   capturedImage!,

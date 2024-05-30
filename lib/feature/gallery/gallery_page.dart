@@ -4,7 +4,7 @@ import 'package:simple_camera_app/constants/common_exports.dart';
 import 'package:simple_camera_app/feature/camera/camera_widget.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:simple_camera_app/feature/gallery/video_player_widget.dart';
-import 'package:simple_camera_app/feature/gallery/vieo_player_page.dart';
+import 'package:simple_camera_app/feature/gallery/video_player_page.dart';
 import 'dart:io';
 import 'full_screen_view_page.dart';
 
@@ -97,7 +97,8 @@ class _GalleryPageState extends ConsumerState<GalleryPage> {
 
 @override
 Widget build(BuildContext context) {
-  final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+  bool isPortrait = AppLayouts.isPortraitMode(context);
+  bool isLandscape = AppLayouts.isLandscapeMode(context);
 
   if (ref.watch(updateClickProvider)) {
     loadImagesAndVideos();
@@ -106,42 +107,15 @@ Widget build(BuildContext context) {
   final displayedFiles = showPhotos ? photoFiles : videoFiles;
 
   return Scaffold(
+    backgroundColor: AppColor.maerskLightGrey,
     body: CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
           title: Text(
             'Gallery',
-            style: TextStyle(
-              color: AppColor.whiteColor,
-            ),
+            style: AppStyles.appHeaderTextStyle(context, isPortrait),
           ),
-          backgroundColor: AppColor.appColor,
           elevation: 2.0,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: AppColor.whiteColor,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          actions: [
-            IconButton(
-              icon: Icon(
-                Icons.camera_alt_rounded,
-                color: AppColor.whiteColor,
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CameraWidget(),
-                  ),
-                );
-              },
-            ),
-          ],
         ),
         SliverToBoxAdapter(
           key: const Key('galleryWidget'),

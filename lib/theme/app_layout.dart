@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 
 /// AppLayouts class contains all the responsive media query functions.
 class AppLayouts {
-  // Responsive Media Query functions
 
   /// Returns the height(double) of the current view. Provide the context.
   static double viewHeight(BuildContext context) {
